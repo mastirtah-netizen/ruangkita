@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101522"><title>RuangKita — Ruang rapat online</title>
+<style>
+:root{color-scheme:dark;--bg:#0d111b;--panel:#151b29;--panel2:#1d2637;--line:#2b3548;--text:#eef2fb;--muted:#9ba8bf;--accent:#6d7cff;--green:#3dd6a0;--red:#ff667a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}button,input{font:inherit}button{border:0;cursor:pointer;transition:.16s}button:disabled{opacity:.45;cursor:not-allowed}.app{min-height:100vh;display:flex;flex-direction:column}.top{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;border-bottom:1px solid var(--line);background:#111725;gap:12px}.brand{display:flex;align-items:center;gap:11px;font-size:20px;font-weight:800;letter-spacing:-.5px}.logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#8792ff,#6264e8);display:grid;place-items:center;color:white;font-weight:900}.brand small{display:block;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:0}.topright{display:flex;align-items:center;gap:12px}.pill{border:1px solid var(--line);border-radius:999px;padding:7px 12px;color:var(--muted);font-size:12px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:7px}.main{width:min(1440px,100%);margin:0 auto;padding:24px;flex:1}.welcome{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:20px}.eyebrow{color:#9da7ff;font-size:12px;text-transform:uppercase;letter-spacing:1.8px;font-weight:800}.welcome h1{font-size:clamp(25px,3vw,36px);line-height:1.15;letter-spacing:-1.2px;margin:7px 0}.welcome p{color:var(--muted);margin:0}.roomid{font-size:12px;color:var(--muted);text-align:right}.roomid strong{color:var(--text);font-size:14px;display:block;margin-top:3px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px}.stage{min-width:0}.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;min-height:420px}.tile{position:relative;background:linear-gradient(145deg,#202b40,#141a28);border:1px solid var(--line);border-radius:18px;overflow:hidden;min-height:205px;display:flex;align-items:center;justify-content:center}.tile video{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;background:#121826}.tile video.mirror{transform:scaleX(-1)}.tile .avatar{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;font-size:24px;font-weight:800;background:linear-gradient(135deg,#737eff,#4c50aa);box-shadow:0 10px 35px #0005}.tile .person{position:absolute;bottom:13px;left:13px;z-index:2;background:#0c111bc9;border:1px solid #ffffff1c;padding:6px 10px;border-radius:9px;font-size:12px;backdrop-filter:blur(10px)}.tile .mic{position:absolute;top:12px;right:12px;z-index:2;background:#0c111bc9;padding:6px;border-radius:8px;font-size:12px}.tile .speaking{border:1px solid #3dd6a0}.screen-tile{grid-column:1/-1;min-height:360px}.screen-tile video{object-fit:contain;background:#080b11}.controls{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;padding:17px 0}.control{display:flex;align-items:center;justify-content:center;gap:8px;min-height:45px;padding:0 16px;border-radius:12px;background:var(--panel2);color:var(--text);border:1px solid var(--line);font-weight:650}.control:hover{background:#29354a}.control.off{background:#482431;border-color:#7b3949}.control.primary{background:var(--accent);border-color:var(--accent)}.control.danger{background:#bd354d;border-color:#bd354d}.control .ico{font-size:17px}.side{background:var(--panel);border:1px solid var(--line);border-radius:18px;display:flex;flex-direction:column;min-height:500px;overflow:hidden}.tabs{display:flex;border-bottom:1px solid var(--line)}.tab{flex:1;padding:15px 8px;background:transparent;color:var(--muted);font-weight:700;border-bottom:2px solid transparent}.tab.active{color:var(--text);border-bottom-color:var(--accent)}.side-content{padding:16px;display:flex;flex-direction:column;flex:1;min-height:0}.chat-head{font-weight:750;margin-bottom:4px}.sub{font-size:12px;color:var(--muted)}.messages{flex:1;min-height:260px;max-height:460px;overflow:auto;padding:15px 0;display:flex;flex-direction:column;gap:14px}.msg{display:flex;flex-direction:column;gap:3px}.msgmeta{font-size:11px;color:var(--muted);display:flex;gap:8px}.msgmeta b{color:#c6ceff}.bubble{background:var(--panel2);border-radius:4px 12px 12px 12px;padding:9px 11px;overflow-wrap:anywhere;white-space:pre-wrap;font-size:13px}.msg.mine .bubble{background:#30345e}.system{font-size:11px;text-align:center;color:var(--muted);padding:3px}.chat-form{display:flex;gap:8px;padding-top:12px;border-top:1px solid var(--line)}.chat-form input,.join-form input{min-width:0;width:100%;background:#0f1522;border:1px solid var(--line);border-radius:11px;color:var(--text);padding:12px;outline:none}.chat-form input:focus,.join-form input:focus{border-color:var(--accent)}.send{width:44px;flex:none;border-radius:11px;background:var(--accent);color:white;font-size:18px}.participants{display:flex;flex-direction:column;gap:10px;margin-top:16px}.participant{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;background:var(--panel2)}.miniavatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#343d62;font-weight:800}.participant .who{flex:1;min-width:0}.participant .who strong{display:block;font-size:13px;overflow:hidden;text-overflow:ellipsis}.participant .who span{font-size:11px;color:var(--muted)}.notice{padding:12px;border-radius:12px;background:#1b2638;color:#c8d4ec;font-size:12px;margin-top:14px}.join-screen{position:fixed;inset:0;z-index:10;background:#0d111b;display:grid;place-items:center;padding:20px}.join-card{width:min(460px,100%);padding:30px;border:1px solid var(--line);border-radius:24px;background:var(--panel);box-shadow:0 24px 90px #0005}.join-card h2{font-size:28px;letter-spacing:-.7px;margin:20px 0 5px}.join-card p{color:var(--muted);margin:0 0 24px}.join-form{display:flex;flex-direction:column;gap:12px}.join-form label{font-size:12px;color:var(--muted);font-weight:700}.join-form button{height:48px;border-radius:12px;background:var(--accent);color:white;font-weight:800;margin-top:6px}.join-foot{font-size:11px;color:var(--muted);text-align:center;margin-top:18px}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#242d40;border:1px solid #45516b;color:white;padding:11px 16px;border-radius:12px;z-index:20;box-shadow:0 10px 40px #0006;max-width:90%;font-size:13px}.hidden{display:none!important}.footer{padding:15px 24px;text-align:center;font-size:11px;color:#65718a;border-top:1px solid var(--line)}
+@media(max-width:980px){.layout{grid-template-columns:1fr}.side{min-height:420px}.messages{max-height:320px}.welcome{align-items:flex-start;flex-direction:column}.roomid{text-align:left}.video-grid{min-height:340px}.main{padding:18px}}
+@media(max-width:560px){.top{padding:0 15px;height:64px}.topright .pill:first-child{display:none}.main{padding:15px 12px}.video-grid{grid-template-columns:1fr;min-height:0}.tile{min-height:240px}.screen-tile{grid-column:auto;min-height:240px}.controls{gap:7px}.control{padding:0 11px;min-height:43px;font-size:12px}.control .label{display:none}.brand{font-size:18px}.side{min-height:420px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="brand"><div class="logo">R</div><div>RuangKita<small>Ruang ngobrol, ide bertemu.</small></div></div><div class="topright"><span class="pill"><span class="dot"></span><span id="connectionText">Belum terhubung</span></span><span class="pill" id="clock">RUANG RAPAT</span></div></header>
+<main class="main">
+<section class="welcome"><div><div class="eyebrow">Ruang kolaborasi online</div><h1>Fokus pada ide. Terhubung dari mana saja.</h1><p>Video call, obrolan real-time, dan presentasi layar dalam satu ruang.</p></div><div class="roomid">ID RUANG<strong id="roomLabel">—</strong></div></section>
+<div class="layout"><section class="stage"><div class="video-grid" id="videoGrid"><div class="tile" id="localTile"><video id="localVideo" autoplay playsinline muted class="mirror"></video><div class="avatar" id="localAvatar">?</div><span class="person" id="localName">Kamu</span><span class="mic" id="localMic">🎙️ Mic aktif</span></div></div>
+<div class="controls"><button class="control" id="micBtn" disabled><span class="ico">🎙️</span><span class="label">Mute</span></button><button class="control" id="cameraBtn" disabled><span class="ico">📷</span><span class="label">Matikan kamera</span></button><button class="control primary" id="shareBtn" disabled><span class="ico">🖥️</span><span class="label">Bagikan layar</span></button><button class="control" id="copyBtn"><span class="ico">🔗</span><span class="label">Salin link</span></button><button class="control danger" id="leaveBtn" disabled><span class="ico">☎</span><span class="label">Keluar</span></button></div>
+<div class="notice">🔒 <b>Tips:</b> Izinkan akses kamera dan mikrofon saat diminta. Berbagi layar tersedia di browser yang mendukungnya; gunakan HTTPS saat aplikasi dipublikasikan.</div>
+</section>
+<aside class="side"><div class="tabs"><button class="tab active" data-tab="chat">💬 Chat</button><button class="tab" data-tab="people">👥 Peserta <span id="peopleCount">0</span></button></div><div class="side-content" id="chatPane"><div class="chat-head">Pesan ruang rapat</div><div class="sub">Pesan terlihat oleh peserta yang sedang online.</div><div class="messages" id="messages"><div class="system">Selamat datang di RuangKita 👋</div></div><form class="chat-form" id="chatForm"><input id="chatInput" maxlength="1500" placeholder="Tulis pesan…" autocomplete="off" disabled><button class="send" id="sendBtn" disabled aria-label="Kirim pesan">➤</button></form></div><div class="side-content hidden" id="peoplePane"><div class="chat-head">Di dalam ruang</div><div class="sub">Peserta yang sedang terhubung.</div><div class="participants" id="participants"><div class="sub">Belum ada peserta.</div></div></div></aside></div>
+</main><footer class="footer">RuangKita • Untuk rapat dan presentasi • Prototype aplikasi real-time</footer></div>
+<div class="join-screen" id="joinScreen"><div class="join-card"><div class="brand"><div class="logo">R</div><div>RuangKita<small>Ruang rapat online</small></div></div><h2>Gabung ke ruang rapat</h2><p>Masukkan nama kamu sebelum masuk ke ruang.</p><form class="join-form" id="joinForm"><div><label for="nameInput">NAMA TAMPILAN</label><input id="nameInput" maxlength="40" placeholder="Contoh: Valen" required autocomplete="name"></div><div><label for="roomInput">ID RUANG</label><input id="roomInput" maxlength="48" placeholder="contoh: tugas-sipil" required></div><button type="submit">Gabung ke ruang →</button></form><div class="join-foot">Kamu bisa mengundang teman dengan membagikan link ruang setelah bergabung.</div></div></div>
+<div class="toast hidden" id="toast"></div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const params = new URLSearchParams(location.search);
+  const randomRoom = () => 'ruang-' + (crypto.randomUUID ? crypto.randomUUID().replace(/-/g,'').slice(0,16) : Math.random().toString(36).slice(2,14));
+  $('roomInput').value = params.get('room') || randomRoom();
+  $('nameInput').value = '';
+  let socket = null, room = '', name = '', localStream = null, screenStream = null, sharing = false;
+  let micOn = true, cameraOn = true, joined = false;
+  const peers = new Map(); // peerId -> { pc, name, stream, tile }
+  const peerNames = new Map();
+  const colors = ['#5d70c9','#a45fc0','#3f9e8c','#c17c4b','#547ea8','#b45f78'];
+
+  function toast(text) { const el=$('toast'); el.textContent=text; el.classList.remove('hidden'); clearTimeout(toast.timer); toast.timer=setTimeout(()=>el.classList.add('hidden'),3200); }
+  function initials(value) { return (value||'?').trim().split(/\s+/).slice(0,2).map(s=>s[0]||'').join('').toUpperCase() || '?'; }
+  function timeLabel(ts) { return new Date(ts||Date.now()).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'}); }
+  function addMessage({id,name:sender,text,at,system=false}) {
+    const box=$('messages');
+    if (system) { const el=document.createElement('div'); el.className='system'; el.textContent=text; box.appendChild(el); }
+    else { const wrap=document.createElement('div'); wrap.className='msg'+(id===socket?.id?' mine':''); const meta=document.createElement('div'); meta.className='msgmeta'; const who=document.createElement('b'); who.textContent=sender||'Peserta'; const when=document.createElement('span'); when.textContent=timeLabel(at); meta.append(who,when); const bubble=document.createElement('div'); bubble.className='bubble'; bubble.textContent=text; wrap.append(meta,bubble); box.appendChild(wrap); }
+    box.scrollTop=box.scrollHeight;
+  }
+  function setConnection(text,good=false) { $('connectionText').textContent=text; const dot=document.querySelector('.topright .dot'); dot.style.background=good?'var(--green)':'#e7b45e'; }
+  function updatePeople() {
+    const list=$('participants'); list.replaceChildren();
+    const all=[{id:socket?.id,name:name,self:true},...[...peers.entries()].map(([id,p])=>({id,name:p.name}))].filter(p=>p.id);
+    $('peopleCount').textContent=all.length;
+    all.forEach((p,i)=>{ const row=document.createElement('div'); row.className='participant'; const avatar=document.createElement('div'); avatar.className='miniavatar'; avatar.style.background=colors[i%colors.length]; avatar.textContent=initials(p.name); const who=document.createElement('div'); who.className='who'; const strong=document.createElement('strong'); strong.textContent=p.name+(p.self?' (Kamu)':''); const sub=document.createElement('span'); sub.textContent=p.self?'Perangkat ini':'Peserta'; who.append(strong,sub); const state=document.createElement('span'); state.textContent='●'; state.style.color='var(--green)'; row.append(avatar,who,state); list.appendChild(row); });
+    if(!all.length){list.textContent='Belum ada peserta.';}
+  }
+  function makeTile(id, personName, stream, self=false) {
+    if(self) return;
+    let tile=document.getElementById('tile-'+id);
+    if(!tile){ tile=document.createElement('div'); tile.className='tile'; tile.id='tile-'+id; const video=document.createElement('video'); video.autoplay=true; video.playsInline=true; video.id='video-'+id; const avatar=document.createElement('div'); avatar.className='avatar'; avatar.id='avatar-'+id; avatar.textContent=initials(personName); const person=document.createElement('span'); person.className='person'; person.textContent=personName; const mic=document.createElement('span'); mic.className='mic'; mic.textContent='🎙️ Peserta'; tile.append(video,avatar,person,mic); $('videoGrid').appendChild(tile); }
+    const video=$('video-'+id); if(stream && video.srcObject!==stream) video.srcObject=stream;
+    $('avatar-'+id).classList.toggle('hidden',!!stream && stream.getVideoTracks().some(t=>t.enabled));
+  }
+  function removePeer(id) { const p=peers.get(id); if(p){ try{p.pc.close()}catch{}; peers.delete(id); } $('tile-'+id)?.remove(); updatePeople(); }
+  function createPeer(id, personName, initiator) {
+    if(peers.has(id)) return peers.get(id);
+    const pc=new RTCPeerConnection({iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'}]});
+    const stream=new MediaStream();
+    const p={pc,name:personName||'Peserta',stream}; peers.set(id,p); peerNames.set(id,p.name);
+    if(localStream) {
+      localStream.getTracks().forEach(track=>pc.addTrack(track,localStream));
+      // Reserve a video sender even for audio-only participants so screen sharing
+      // can replace its track without requiring renegotiation.
+      if(initiator && !localStream.getVideoTracks().length) pc.addTransceiver('video',{direction:'sendrecv'});
+    }
+    pc.onicecandidate=e=>{if(e.candidate) socket.emit('ice-candidate',{to:id,candidate:e.candidate});};
+    pc.ontrack=e=>{ const incoming=e.streams[0]; if(incoming){ incoming.getTracks().forEach(t=>{if(!stream.getTracks().some(x=>x.id===t.id)) stream.addTrack(t)}); } makeTile(id,p.name,stream); };
+    pc.onconnectionstatechange=()=>{ if(['failed','closed'].includes(pc.connectionState)) removePeer(id); };
+    makeTile(id,p.name,stream); updatePeople();
+    if(initiator) pc.createOffer().then(offer=>pc.setLocalDescription(offer)).then(()=>socket.emit('offer',{to:id,description:pc.localDescription})).catch(err=>console.error('Offer error',err));
+    return p;
+  }
+  async function startMedia() {
+    try { localStream=await navigator.mediaDevices.getUserMedia({video:true,audio:true}); }
+    catch(err) {
+      try { localStream=await navigator.mediaDevices.getUserMedia({video:false,audio:true}); toast('Kamera tidak tersedia; kamu bergabung dengan audio saja.'); }
+      catch(e) { localStream=new MediaStream(); toast('Izin kamera/mikrofon tidak diberikan. Kamu bisa tetap chat.'); }
+    }
+    $('localVideo').srcObject=localStream;
+    $('localAvatar').textContent=initials(name); $('localName').textContent=name+' (Kamu)';
+    const hasVideo=localStream.getVideoTracks().length>0; $('localAvatar').classList.toggle('hidden',hasVideo&&cameraOn);
+    micOn=localStream.getAudioTracks().length>0; cameraOn=hasVideo;
+    updateControls();
+  }
+  function updateControls(){
+    $('micBtn').disabled=!joined; $('cameraBtn').disabled=!joined; $('shareBtn').disabled=!joined; $('leaveBtn').disabled=!joined;
+    $('micBtn').classList.toggle('off',!micOn); $('micBtn').querySelector('.ico').textContent=micOn?'🎙️':'🔇'; $('micBtn').querySelector('.label').textContent=micOn?'Mute':'Unmute';
+    $('cameraBtn').classList.toggle('off',!cameraOn); $('cameraBtn').querySelector('.ico').textContent=cameraOn?'📷':'🚫'; $('cameraBtn').querySelector('.label').textContent=cameraOn?'Matikan kamera':'Nyalakan kamera';
+    $('shareBtn').classList.toggle('primary',sharing); $('shareBtn').querySelector('.label').textContent=sharing?'Berhenti berbagi':'Bagikan layar';
+    $('localMic').textContent=micOn?'🎙️ Mic aktif':'🔇 Mic mati'; $('localAvatar').classList.toggle('hidden',cameraOn && localStream?.getVideoTracks().length>0);
+    $('chatInput').disabled=!joined; $('sendBtn').disabled=!joined;
+  }
+  async function joinRoom(event){
+    event?.preventDefault(); if(joined) return;
+    name=$('nameInput').value.trim().slice(0,40); room=$('roomInput').value.trim().replace(/[^a-zA-Z0-9_-]/g,'').slice(0,48);
+    if(!name||!room){toast('Isi nama dan ID ruang terlebih dahulu.');return;}
+    if(typeof io!=='function'){toast('Socket.IO belum termuat. Jalankan aplikasi lewat server Node.js.');return;}
+    if(!navigator.mediaDevices){toast('Browser ini tidak mendukung media. Gunakan browser modern dan HTTPS.');return;}
+    $('joinScreen').classList.add('hidden'); $('roomLabel').textContent=room; $('clock').textContent='RUANG AKTIF';
+    history.replaceState({},'',location.pathname+'?room='+encodeURIComponent(room));
+    setConnection('Menghubungkan…');
+    socket=io({transports:['websocket','polling']});
+    socket.on('connect',async()=>{
+      socket.emit('join-room',{room,name});
+    });
+    socket.on('room-joined',async({peers:existing})=>{
+      joined=true; setConnection('Terhubung',true); await startMedia();
+      (existing||[]).forEach(p=>createPeer(p.id,p.name,true)); updatePeople(); updateControls();
+      addMessage({system:true,text:'Kamu bergabung. Silakan mulai diskusi!'});
+    });
+    socket.on('peer-joined',({id,name:personName})=>{ peerNames.set(id,personName); addMessage({system:true,text:personName+' bergabung ke ruang rapat.'}); updatePeople(); });
+    socket.on('offer',async({from,description})=>{
+      const personName=peerNames.get(from)||'Peserta'; const p=createPeer(from,personName,false);
+      try{
+        await p.pc.setRemoteDescription(description);
+        // If the caller sent no video m-line, append one before creating the answer
+        // so later screen sharing can use replaceTrack without renegotiation.
+        if(!p.pc.getTransceivers().some(t=>t.receiver?.track?.kind==='video')) p.pc.addTransceiver('video',{direction:'sendrecv'});
+        const answer=await p.pc.createAnswer();await p.pc.setLocalDescription(answer);socket.emit('answer',{to:from,description:p.pc.localDescription});
+      }catch(e){console.error('WebRTC answer error',e);toast('Koneksi media gagal. Coba keluar lalu masuk kembali.');}
+    });
+    socket.on('answer',async({from,description})=>{const p=peers.get(from);if(p)try{await p.pc.setRemoteDescription(description)}catch(e){console.error(e)}});
+    socket.on('ice-candidate',async({from,candidate})=>{const p=peers.get(from);if(p&&candidate)try{await p.pc.addIceCandidate(candidate)}catch(e){console.warn(e)}});
+    socket.on('peer-left',({id,name:personName})=>{removePeer(id);addMessage({system:true,text:(personName||'Peserta')+' keluar dari ruang rapat.'});});
+    socket.on('chat-message',msg=>addMessage(msg));
+    socket.on('system-message',msg=>addMessage({system:true,text:msg.text,at:msg.at}));
+    socket.on('room-error',msg=>{toast(msg); $('joinScreen').classList.remove('hidden'); joined=false; socket.disconnect();});
+    socket.on('disconnect',()=>{setConnection('Terputus'); if(joined)toast('Koneksi terputus. Coba muat ulang halaman.');});
+  }
+  async function shareScreen(){
+    if(!joined)return;
+    if(!sharing){
+      try{screenStream=await navigator.mediaDevices.getDisplayMedia({video:{frameRate:15},audio:false});const track=screenStream.getVideoTracks()[0];
+        for(const p of peers.values()){
+          const videoTransceiver=p.pc.getTransceivers().find(t=>t.receiver?.track?.kind==='video');
+          if(videoTransceiver) await videoTransceiver.sender.replaceTrack(track);
+          else { toast('Jalur video belum tersedia. Keluar lalu masuk kembali sebelum berbagi layar.'); throw new Error('Video sender is not negotiated'); }
+        }
+        $('localVideo').srcObject=screenStream; $('localVideo').classList.remove('mirror'); $('localAvatar').classList.add('hidden'); sharing=true;
+        track.onended=()=>stopShare(); updateControls(); toast('Layar sedang dibagikan.');
+      }catch(e){screenStream?.getTracks().forEach(t=>t.stop());screenStream=null;if(e.name!=='AbortError')toast('Gagal berbagi layar. Periksa izin browser dan coba lagi.');}
+    }else await stopShare();
+  }
+  async function stopShare(){
+    if(!sharing)return; sharing=false;
+    screenStream?.getTracks().forEach(t=>t.stop()); screenStream=null;
+    const cameraTrack=localStream?.getVideoTracks().find(t=>t.readyState==='live')||null;
+    for(const p of peers.values()){
+      const videoTransceiver=p.pc.getTransceivers().find(t=>t.receiver?.track?.kind==='video');
+      if(videoTransceiver){try{await videoTransceiver.sender.replaceTrack(cameraOn?cameraTrack:null)}catch(e){console.warn(e)}}
+    }
+    $('localVideo').srcObject=localStream; $('localVideo').classList.add('mirror'); updateControls(); toast('Berbagi layar dihentikan.');
+  }
+  async function leave(){
+    if(sharing)await stopShare(); joined=false;
+    peers.forEach(p=>p.pc.close()); peers.clear(); document.querySelectorAll('[id^="tile-"]').forEach(el=>el.remove());
+    localStream?.getTracks().forEach(t=>t.stop()); localStream=null; socket?.disconnect(); socket=null;
+    $('localVideo').srcObject=null; $('joinScreen').classList.remove('hidden'); $('clock').textContent='RUANG RAPAT'; setConnection('Belum terhubung'); updateControls(); updatePeople(); toast('Kamu sudah keluar dari ruang.');
+  }
+  $('joinForm').addEventListener('submit',joinRoom);
+  $('micBtn').addEventListener('click',()=>{micOn=!micOn;localStream?.getAudioTracks().forEach(t=>t.enabled=micOn);updateControls()});
+  $('cameraBtn').addEventListener('click',()=>{cameraOn=!cameraOn;localStream?.getVideoTracks().forEach(t=>t.enabled=cameraOn);updateControls()});
+  $('shareBtn').addEventListener('click',shareScreen); $('leaveBtn').addEventListener('click',leave);
+  $('copyBtn').addEventListener('click',async()=>{const url=location.origin+location.pathname+'?room='+encodeURIComponent(room||$('roomInput').value.trim()||'ruang-umum');try{await navigator.clipboard.writeText(url);toast('Link ruang disalin!')}catch{prompt('Salin link ruang ini:',url)}});
+  $('chatForm').addEventListener('submit',e=>{e.preventDefault();const input=$('chatInput');const text=input.value.trim();if(text&&socket&&joined){socket.emit('chat-message',{text});input.value='';}});
+  document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t===tab));$('chatPane').classList.toggle('hidden',tab.dataset.tab!=='chat');$('peoplePane').classList.toggle('hidden',tab.dataset.tab!=='people');}));
+  updatePeople();
+})();
+</script>
+</body></html>
